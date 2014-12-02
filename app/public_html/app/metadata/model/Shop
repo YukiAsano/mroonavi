@@ -1,0 +1,147 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "Shop"
+    },
+    "name": "MyModel",
+    "designerId": "de8873b5-31c1-4d2b-bffe-5dc5464350ec",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "thumbnail"
+            },
+            "name": "field5",
+            "designerId": "d8bed994-d30b-4f0e-91fe-d7ad62a98829"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "name"
+            },
+            "name": "field",
+            "designerId": "3b0236d0-2ea6-4b46-8749-f003c46ee048"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "address"
+            },
+            "name": "field1",
+            "designerId": "b6cf8813-151f-4941-95b8-acd09da2ce34"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "lat"
+            },
+            "name": "field2",
+            "designerId": "385019c9-af8a-439c-8caa-14bedd282d4b"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "lng"
+            },
+            "name": "field3",
+            "designerId": "e2e3a3f1-36e9-47fc-879a-910847b15a34"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "url"
+            },
+            "name": "field4",
+            "designerId": "3b6669a1-43a6-473e-b219-014999c096af"
+        },
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "http://touchmap.dev/data/index.php?type=shop"
+            },
+            "name": "MyAjaxProxy",
+            "designerId": "64bffddb-8906-4f9d-bedc-098b2639cd36",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "rootProperty": "items"
+                    },
+                    "name": "MyJsonReader",
+                    "designerId": "de372ae7-ab9b-4ae3-b782-42946128e544"
+                }
+            ]
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "coupon"
+            },
+            "name": "field6",
+            "designerId": "4bf51e7a-b12b-45e4-94ab-a15322776d0f"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "tel"
+            },
+            "name": "field7",
+            "designerId": "3b91edb8-5fca-4bf6-874e-38ca7625213c"
+        }
+    ]
+}

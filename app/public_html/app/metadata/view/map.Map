@@ -1,0 +1,35 @@
+{
+    "type": "Ext.Map",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "map_map",
+        "designer|userClassName": "map.Map",
+        "listeners": null,
+        "mapOptions": [
+            "{",
+            "center: new google.maps.LatLng(35.681382, 139.766084),",
+            "mapTypeId: google.maps.MapTypeId.ROADMAP,",
+            "mapTypeControl: false,",
+            "maxZoom: 19,",
+            "minZoom: 15,",
+            "zoom: 17",
+            "}"
+        ]
+    },
+    "name": "MyMap",
+    "configAlternates": {
+        "listeners": "object"
+    },
+    "designerId": "8d15e305-c7b9-43bd-b1d2-fcea90c2f4c1",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "listeners",
+            "type": "string"
+        }
+    ]
+}

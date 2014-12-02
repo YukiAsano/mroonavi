@@ -1,0 +1,94 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "Main"
+    },
+    "name": "MyController",
+    "designerId": "7acdabd0-0b81-4766-9a8f-903c58293529",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "main",
+                "selector": "main"
+            },
+            "name": "main",
+            "designerId": "22fd4f2b-cd36-49fb-93a9-18249c6382ba"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "main",
+                "designer|params": [
+                    "target"
+                ],
+                "fn": "onShow",
+                "implHandler": [
+                    "var me = this;",
+                    "me.getMain().setActiveItem(0);"
+                ],
+                "name": "show"
+            },
+            "name": "onShow",
+            "designerId": "b6f6dced-7e14-48e9-bad4-fc7dfda02fd4"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": ".viewport",
+                "designer|params": [
+                    "values"
+                ],
+                "fn": "onShowMap",
+                "implHandler": [
+                    "var me = this,",
+                    "    main = me.getMain();",
+                    "main.setActiveItem(1);",
+                    "main.down('map_main').fireEvent('search', values);"
+                ],
+                "name": "submitSearch"
+            },
+            "name": "onShowMap",
+            "designerId": "65229fa0-d87e-424b-a893-48eb003bd206"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "main",
+                "fn": "onShowSearch",
+                "implHandler": [
+                    "var me = this;",
+                    "me.getMain().setActiveItem(0);"
+                ],
+                "name": "returnSearch"
+            },
+            "name": "onShowSearch",
+            "designerId": "c4c260e9-bb75-466d-b512-c9e945542188"
+        }
+    ]
+}

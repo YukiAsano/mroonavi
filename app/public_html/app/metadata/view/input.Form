@@ -1,0 +1,119 @@
+{
+    "type": "Ext.form.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "input_form",
+        "designer|userClassName": "input.Form",
+        "layout": null
+    },
+    "name": "MyFormPanel",
+    "designerId": "39b0f8b5-65b3-4792-a7ba-3981cf1e4d00",
+    "cn": [
+        {
+            "type": "Ext.form.FieldSet",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "title": "検索ワード1"
+            },
+            "name": "MyFieldSet1",
+            "designerId": "47fb1c90-523b-4b5d-b6c8-de44338486d0",
+            "cn": [
+                {
+                    "type": "Ext.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "label": null,
+                        "name": "search1"
+                    },
+                    "name": "MyTextField",
+                    "designerId": "24c608a6-4123-4102-a2ca-097715edf946"
+                }
+            ]
+        },
+        {
+            "type": "Ext.form.FieldSet",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "title": "検索ワード2"
+            },
+            "name": "MyFieldSet",
+            "designerId": "7ecac746-40b6-4f35-8855-bcc4b0f997e2",
+            "cn": [
+                {
+                    "type": "Ext.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "label": null,
+                        "name": "search2"
+                    },
+                    "name": "MyTextField",
+                    "designerId": "c4e89a84-7e19-4cf7-a29e-9dcfff47efe5"
+                }
+            ]
+        },
+        {
+            "type": "Ext.form.FieldSet",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "title": "検索ワード3"
+            },
+            "name": "MyFieldSet2",
+            "designerId": "f660fab4-b559-4a2e-af83-e8b9919f5d1d",
+            "cn": [
+                {
+                    "type": "Ext.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "label": null,
+                        "name": "search3"
+                    },
+                    "name": "MyTextField",
+                    "designerId": "167e3d0c-c5fe-4ddc-8583-4e468e93b494"
+                }
+            ]
+        },
+        {
+            "type": "Ext.Button",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "itemId": "submit",
+                "margin": "10 100 10",
+                "text": "検索"
+            },
+            "name": "MyButton",
+            "designerId": "5a858eb4-f92e-4876-afa5-02619d64aeeb"
+        }
+    ]
+}

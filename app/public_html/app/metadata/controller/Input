@@ -1,0 +1,63 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "Input"
+    },
+    "name": "MyController",
+    "designerId": "44f417bf-2f93-492a-8b91-73aa63c35aef",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "input",
+                "selector": "input_main"
+            },
+            "name": "input",
+            "designerId": "d9c515ff-7b79-4561-b606-8e7ac27c39bb"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": ".input_main #submit",
+                "fn": "onSubmit",
+                "implHandler": [
+                    "var me = this,",
+                    "    form = me.getForm();",
+                    "Ext.Viewport.fireEvent('submitSearch', form.getValues());"
+                ],
+                "name": "tap"
+            },
+            "name": "onSubmit",
+            "designerId": "ed35a1aa-65fd-4ce8-adca-dab3f72fcf7b"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "form",
+                "selector": "input_form"
+            },
+            "name": "form",
+            "designerId": "6c18ac0a-6159-4d99-bade-bd75efabd016"
+        }
+    ]
+}

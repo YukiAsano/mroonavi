@@ -1,0 +1,45 @@
+{
+    "type": "Ext.Container",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "input_main",
+        "designer|userClassName": "input.Main",
+        "layout": "fit"
+    },
+    "name": "MyContainer",
+    "designerId": "e22adcb2-a2f8-4758-864c-0cffde652966",
+    "cn": [
+        {
+            "type": "Ext.Toolbar",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "docked": "top",
+                "title": "検索"
+            },
+            "name": "MyToolbar",
+            "designerId": "487ab9a8-7ea5-4e7f-9948-f4656d8b3bf9"
+        },
+        {
+            "type": "linkedinstance",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout": null
+            },
+            "name": "input.form",
+            "designerId": "3d16f61a-9457-49de-b53f-d7319fc5ab29",
+            "masterInstanceId": "39b0f8b5-65b3-4792-a7ba-3981cf1e4d00"
+        }
+    ]
+}

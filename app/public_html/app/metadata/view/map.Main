@@ -1,0 +1,65 @@
+{
+    "type": "Ext.Container",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "map_main",
+        "designer|userClassName": "map.Main",
+        "layout": "fit"
+    },
+    "name": "MyContainer",
+    "designerId": "5a644db8-c1af-49c0-87da-0215fbc148a1",
+    "cn": [
+        {
+            "type": "Ext.Toolbar",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "docked": "top",
+                "title": "結果"
+            },
+            "name": "MyToolbar1",
+            "designerId": "248e9e1f-8c26-437f-a3e3-bab95207b346",
+            "cn": [
+                {
+                    "type": "Ext.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|uiInterfaceName": "back",
+                        "itemId": "return",
+                        "text": "戻る",
+                        "ui": "back"
+                    },
+                    "name": "MyButton1",
+                    "designerId": "fd14d7d4-19d3-4f25-a4e0-5045ab084054"
+                }
+            ]
+        },
+        {
+            "type": "linkedinstance",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "height": "100%",
+                "useCurrentLocation": false,
+                "width": "100%"
+            },
+            "name": "map.map",
+            "designerId": "20e5a52e-892f-4de7-a0b2-d39c90e88cac",
+            "masterInstanceId": "8d15e305-c7b9-43bd-b1d2-fcea90c2f4c1"
+        }
+    ]
+}

@@ -1,0 +1,339 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "Map"
+    },
+    "name": "MyController",
+    "configAlternates": {
+        "storeUploadFn": "object",
+        "doUpdate": "object"
+    },
+    "designerId": "d99b2937-a81a-479f-8493-0ddb1abce293",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "main",
+                "selector": "map_main"
+            },
+            "name": "main",
+            "designerId": "5f899123-8cd7-4ffe-a2ca-94a6b205e33f"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": ".map_main #return",
+                "designer|params": [
+                    "target"
+                ],
+                "fn": "onReturnSearch",
+                "implHandler": [
+                    "var me = this,",
+                    "    main = me.getMain();",
+                    "main.getParent().fireEvent('returnSearch');"
+                ],
+                "name": "tap"
+            },
+            "name": "onReturnSearch",
+            "designerId": "ef27fb1e-fe66-4485-871a-e5ec598e885d"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "map",
+                "selector": "map_map"
+            },
+            "name": "map",
+            "designerId": "e97457f5-ecd5-4fab-ac11-0d4ec56405c4"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "map",
+                "designer|params": [
+                    "target"
+                ],
+                "fn": "onShow",
+                "implHandler": [
+                    "var me = this;",
+                    "me.doUpdate(map.getBounds());"
+                ],
+                "name": "show"
+            },
+            "name": "onShow",
+            "designerId": "c99a4a53-ecb8-4382-8b1b-33b5ad151810"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "map",
+                "designer|params": [
+                    "target",
+                    "map"
+                ],
+                "fn": "onMapRender",
+                "implHandler": [
+                    "var me = this,",
+                    "    geo = Ext.create('Ext.util.Geolocation', {",
+                    "    autoUpdate: false,",
+                    "    listeners: {",
+                    "        locationupdate: function(geo) {",
+                    "            var latlng = new google.maps.LatLng(geo.getLatitude(), geo.getLongitude());",
+                    "            map.setCenter(latlng);",
+                    "            me.doUpdate(map.getBounds());",
+                    "        },",
+                    "        locationerror: function(geo, bTimeout, bPermissionDenied, bLocationUnavailable, message) {",
+                    "            if (bTimeout) {",
+                    "                Ext.Msg.alert('Timeout occurred',\"Could not get current position\");",
+                    "            } else {",
+                    "                alert('Error occurred.');",
+                    "            }",
+                    "        }",
+                    "    }",
+                    "});",
+                    "geo.updateLocation();"
+                ],
+                "name": "maprender"
+            },
+            "name": "onMapRender",
+            "designerId": "27fbf342-05e8-4b05-a0e1-87a27aa65490"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "map",
+                "designer|params": [
+                    "target",
+                    "map",
+                    "latlng"
+                ],
+                "fn": "onCenterChange",
+                "implHandler": [
+                    "var me = this;",
+                    "",
+                    "// ストアの更新",
+                    "me.doUpdate(map.getBounds());"
+                ],
+                "name": "centerchange"
+            },
+            "name": "onCenterChange",
+            "configAlternates": {
+                "storeUpdateFn": "binding"
+            },
+            "designerId": "532e027c-8492-4a09-9417-87ed71e392c2"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "map",
+                "designer|params": [
+                    "target",
+                    "map",
+                    "zoom"
+                ],
+                "fn": "onZoomChange",
+                "implHandler": [
+                    "var me = this;",
+                    "",
+                    "// ストアの更新",
+                    "me.doUpdate(map.getBounds());"
+                ],
+                "name": "zoomchange"
+            },
+            "name": "onZoomChange",
+            "designerId": "af004401-8c7b-4417-8cce-5d5415302557"
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "application"
+                ],
+                "fn": "init",
+                "implHandler": [
+                    "var me = this,",
+                    "    markers = [];",
+                    "",
+                    "// ストアの更新が頻繁に発生するので",
+                    "me.updateFn = null;",
+                    "",
+                    "// 初期値",
+                    "me.searchValues = {",
+                    "    'search1': '',",
+                    "    'search2': '',",
+                    "    'search3': ''",
+                    "};",
+                    "",
+                    "me.lastBounds = null;",
+                    "",
+                    "me.isPingClick = false;",
+                    "",
+                    "// ストア更新",
+                    "me.doUpdate = function (bounds) {",
+                    "",
+                    "    var neLat, neLng, swLat, swLng, i;",
+                    "",
+                    "    if (!bounds || me.isPingClick) {",
+                    "        me.isPingClick = false;",
+                    "        return;",
+                    "    }",
+                    "    me.lastBounds = bounds;",
+                    "    clearTimeout(me.updateFn);",
+                    "",
+                    "    // 表示領域の緯度経度の取得",
+                    "    neLat = bounds.getNorthEast().lat();",
+                    "    neLng = bounds.getNorthEast().lng();",
+                    "    swLat = bounds.getSouthWest().lat();",
+                    "    swLng = bounds.getSouthWest().lng();",
+                    "",
+                    "    me.updateFn = setTimeout(function(){",
+                    "        Ext.getStore('Shops').load({",
+                    "            params: {",
+                    "                search1: me.searchValues.search1,",
+                    "                search2: me.searchValues.search2,",
+                    "                search3: me.searchValues.search3,",
+                    "                swlat: swLat,",
+                    "                swlng: swLng,",
+                    "                nelng: neLng,",
+                    "                nelat: neLat",
+                    "            },",
+                    "            callback: function(records) {",
+                    "",
+                    "                var len = records.length,",
+                    "                    googleMap = me.getMap().getMap(),",
+                    "                    infowindow = new google.maps.InfoWindow(),",
+                    "                    marker, i, pos, record,",
+                    "                    bounds = new google.maps.LatLngBounds();",
+                    "",
+                    "                // マーカー削除",
+                    "                for (i = 0; i <  markers.length; i++) {",
+                    "                    markers[i].setMap();",
+                    "                }",
+                    "",
+                    "                // 配列削除",
+                    "                for (i = 0; i <=  markers.length; i++) {",
+                    "                    markers.shift();",
+                    "                }",
+                    "",
+                    "                for (i = 0; i < len; i++) {",
+                    "",
+                    "                    record = records[i];",
+                    "                    pos = new google.maps.LatLng(record.get('lat'), record.get('lng'));",
+                    "",
+                    "                    marker = new google.maps.Marker({",
+                    "                        position: pos,",
+                    "                        map: googleMap,",
+                    "                        title: 'Click Me ' + i",
+                    "                    });",
+                    "",
+                    "                    google.maps.event.addListener(marker, 'click', (function (marker, i) {",
+                    "                        var shopName = record.get('name'),",
+                    "                            shopUrl = record.get('url'),",
+                    "                            shopAddress = record.get('address'),",
+                    "                            coupon = record.get('coupon'),",
+                    "                            tel = record.get('tel');",
+                    "                        return function () {",
+                    "                            infowindow.setContent(''.concat(",
+                    "                                '<div class=\"infowindow\">',",
+                    "                                    '<a href=\"'+shopUrl+'\" target=\"_blank\">',",
+                    "                                        shopName,",
+                    "                                    '</a>',",
+                    "                                    (coupon !== \"0\" ? '&nbsp(クーポンあり)' : ''),",
+                    "                                    '<br/>',",
+                    "                                    shopAddress,",
+                    "                                    (tel ? '<br/>tel:<a href=\"tel:'+tel+'\">'+tel+'</a>' : ''),",
+                    "                                '</div>'",
+                    "                            ));",
+                    "                            infowindow.open(googleMap, marker);",
+                    "                            me.isPingClick = true;",
+                    "                            setTimeout(function() {",
+                    "                                me.isPingClick = false;",
+                    "                            }, 1500);",
+                    "                            return false;",
+                    "                        };",
+                    "                    })(marker, i));",
+                    "",
+                    "                    // 後で削除するためマーカーを保持",
+                    "                    markers.push(marker);",
+                    "                }",
+                    "                clearTimeout(me.updateFn);",
+                    "            }",
+                    "        });",
+                    "    }, 1200);",
+                    "};",
+                    ""
+                ]
+            },
+            "name": "init",
+            "designerId": "994ae7ee-e20a-4d0c-bbb5-0dbdd790bfe9"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "main",
+                "designer|params": [
+                    "values"
+                ],
+                "fn": "onSearch",
+                "implHandler": [
+                    "var me = this;",
+                    "me.searchValues = values;",
+                    "me.doUpdate(me.lastBounds);"
+                ],
+                "name": "search"
+            },
+            "name": "onSearch",
+            "designerId": "0146dc47-2645-48e5-bec0-901842dc6739"
+        }
+    ]
+}
